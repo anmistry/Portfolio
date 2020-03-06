@@ -1,0 +1,202 @@
+@import 'config';
+@import 'menu';
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include background;
+    background: $primary-color;
+    color: set-text-color($primary-color);
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+// Styles for Headings.
+h1,
+h2, 
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.heading{
+        font-size: 6rem;
+    }
+
+    &.heading1{
+        margin-bottom: 2em;
+        padding: 0.2rem 1rem;
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+main {
+    padding: 4rem;
+    min-height: calc(100vh - 60px);
+
+    .logos {
+        margin-top: 1 rem;
+
+        a {
+            padding: 0.4rem;
+            @include easeOut;
+
+            &:hover {
+                color: $secondary-color; 
+            }
+        }
+    }
+
+    &#home {
+        overflow: hidden;
+        h1 {
+            margin-top: 20vh;
+        }
+    }
+}
+
+//About section
+
+.about-details {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+        'bioportrait bio bio'
+        'education certification technical-skills';
+    grid-template-columns: repeat(3, 1fr); 
+
+
+    .bio-portrait {
+        grid-area: bioportrait;
+        margin: auto;
+        border-radius: 50%;
+        border: 3px solid $secondary-color;
+    }
+
+    .bio {
+        grid-area: bio;
+        font-size: 1.5rem;
+    }
+
+    .education {
+        grid-area: education;
+    }
+
+    .certification {
+        grid-area: certification;
+    }
+
+    .technical-skills {
+        grid-area: technical-skills;
+    }
+
+    .info {
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+    }
+}
+
+// Project section
+.projects-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.7rem;
+
+    img {
+        width: 100%;
+        border: 3px solid #fff;
+        object-fit: cover;
+        height: 170px;
+        
+        &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+
+// Contact Section
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    align-items: center;
+
+    div {
+        font-size: 2rem;
+        padding: 1.5rem 2.5rem;
+        border: 3px solid #fff;
+        margin-bottom: 3rem;
+        @include easeOut;
+
+        &:hover {
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            span {
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+
+
+
+// Button style
+
+.btn-style {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color($secondary-color);
+    }
+}
+
+.btn-style-light {
+    @extend .btn-style;
+    background: lighten($primary-color, 50);
+    color: #333
+}
+
+.btn-style-dark {
+    @extend .btn-style;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+//Footer Section
+#footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+}
+
+@import 'mobile';
