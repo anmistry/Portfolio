@@ -112,7 +112,7 @@ main {
     .info {
         background: lighten($primary-color, 5);
         padding: 0.5rem;
-        border-bottom: $secondary-color 5px solid;
+        border-bottom: 5px solid $secondary-color;
     }
 }
 
